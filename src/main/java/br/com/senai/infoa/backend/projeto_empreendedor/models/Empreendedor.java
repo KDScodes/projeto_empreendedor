@@ -18,6 +18,7 @@ import jakarta.persistence.Table;
 
 
 public class Empreendedor {
+
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,16 +44,15 @@ public class Empreendedor {
     )
     private List<Produto> produtos;
 
+
     public Empreendedor() {
     }
 
-    public Empreendedor(Integer id, String nome, String cpf, LocalDate dataNascimento, Endereco endereco,
-            List<Produto> produtos) {
-        this.id = id;
-        this.nome = nome;
+    public Empreendedor(String cpf, LocalDate dataNascimento, Integer id, String nome, List<Produto> produtos) {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
-        this.endereco = endereco;
+        this.id = id;
+        this.nome = nome;
         this.produtos = produtos;
     }
 
@@ -88,14 +88,6 @@ public class Empreendedor {
         this.dataNascimento = dataNascimento;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
     public List<Produto> getProdutos() {
         return produtos;
     }
@@ -103,7 +95,6 @@ public class Empreendedor {
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
-
 
 
 }
